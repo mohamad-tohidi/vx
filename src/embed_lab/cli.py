@@ -62,6 +62,8 @@ def init(
         base_path
         / ".gitignore": templates.TEMPLATE_GITIGNORE,
         base_path / "main.py": templates.TEMPLATE_MAIN,
+        base_path
+        / "README.md": templates.TEMPLATE_README_MD,
     }
 
     typer.secho(
