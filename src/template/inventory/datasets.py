@@ -1,16 +1,14 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from pydantic import BaseModel
 from pathlib import Path
 from typing import List, Tuple
 
 
-@dataclass(frozen=True, slots=True)
-class PairExample:
+class PairExample(BaseModel):
     query: str
     passage: str
-    label: int  # 1=similar, 0=dissimilar
 
 
 def _read_jsonl(path: Path) -> List[PairExample]:
@@ -25,7 +23,6 @@ def _read_jsonl(path: Path) -> List[PairExample]:
                 PairExample(
                     query=str(obj["query"]),
                     passage=str(obj["passage"]),
-                    label=int(obj["label"]),
                 )
             )
     return out
