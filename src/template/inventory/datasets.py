@@ -31,7 +31,11 @@ def _read_jsonl(path: Path) -> List[PairExample]:
     return out
 
 
-def load_splits(data_dir: Path) -> Tuple[List[PairExample], List[PairExample], List[PairExample]]:
+def load_splits(
+    data_dir: Path,
+) -> Tuple[
+    List[PairExample], List[PairExample], List[PairExample]
+]:
     train = _read_jsonl(data_dir / "train.jsonl")
     dev = _read_jsonl(data_dir / "dev.jsonl")
     gold = _read_jsonl(data_dir / "gold.jsonl")

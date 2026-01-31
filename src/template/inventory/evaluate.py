@@ -4,10 +4,12 @@ import json
 from pathlib import Path
 from typing import Dict, List
 
-from sentence_transformers import SentenceTransformer
-from sentence_transformers.evaluation import BinaryClassificationEvaluator
+from sentence_transformers import SentenceTransformer  # type: ignore
+from sentence_transformers.evaluation import (  # type: ignore
+    BinaryClassificationEvaluator,
+)
 
-from inventory.datasets import PairExample
+from inventory.datasets import PairExample  # type: ignore
 
 
 def evaluate_on_gold(

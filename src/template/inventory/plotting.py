@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-import plotly.express as px
+import plotly.express as px  # type: ignore
 
 
 def plot_training_curves(run_dir: Path) -> None:
@@ -13,8 +13,12 @@ def plot_training_curves(run_dir: Path) -> None:
     if not state_path.exists():
         return
 
-    state: Dict[str, Any] = json.loads(state_path.read_text(encoding="utf-8"))
-    log_history: List[Dict[str, Any]] = state.get("log_history", [])
+    state: Dict[str, Any] = json.loads(
+        state_path.read_text(encoding="utf-8")
+    )
+    log_history: List[Dict[str, Any]] = state.get(
+        "log_history", []
+    )
 
     steps_loss: List[int] = []
     loss_vals: List[float] = []
@@ -59,13 +63,18 @@ def plot_training_curves(run_dir: Path) -> None:
 
 def plot_gold_metrics(
     run_dir: Path,
-    keys: Tuple[str, ...] = ("gold_cosine_accuracy", "gold_cosine_f1"),
+    keys: Tuple[str, ...] = (
+        "gold_cosine_accuracy",
+        "gold_cosine_f1",
+    ),
 ) -> None:
     metrics_path = run_dir / "eval" / "gold_metrics.json"
     if not metrics_path.exists():
         return
 
-    metrics: Dict[str, Any] = json.loads(metrics_path.read_text(encoding="utf-8"))
+    metrics: Dict[str, Any] = json.loads(
+        metrics_path.read_text(encoding="utf-8")
+    )
 
     xs: List[str] = []
     ys: List[float] = []

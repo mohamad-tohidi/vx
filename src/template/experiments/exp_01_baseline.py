@@ -2,11 +2,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from inventory.datasets import load_splits
-from inventory.preprocess import preprocess
-from inventory.train import train
-from inventory.evaluate import evaluate_on_gold
-from inventory.plotting import plot_gold_metrics, plot_training_curves
+from inventory.datasets import load_splits  # type: ignore
+from inventory.preprocess import preprocess  # type: ignore
+from inventory.train import train  # type: ignore
+from inventory.evaluate import evaluate_on_gold  # type: ignore
+from inventory.plotting import (  # type: ignore
+    plot_gold_metrics,
+    plot_training_curves,
+)
 
 
 def main() -> None:

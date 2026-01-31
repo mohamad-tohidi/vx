@@ -4,15 +4,15 @@ import json
 from pathlib import Path
 from typing import List, Optional
 
-from datasets import Dataset
-from sentence_transformers import (
+from datasets import Dataset  # type: ignore
+from sentence_transformers import (  # type: ignore
     SentenceTransformer,
     SentenceTransformerTrainer,
     SentenceTransformerTrainingArguments,
     losses,
 )
 
-from inventory.datasets import PairExample
+from .datasets import PairExample
 
 
 def _to_hf_dataset(examples: List[PairExample]) -> Dataset:
@@ -71,7 +71,9 @@ def train(
     final_dir = run_dir / "final"
     model.save_pretrained(str(final_dir))
 
-    best_ckpt: Optional[str] = getattr(trainer.state, "best_model_checkpoint", None)
+    best_ckpt: Optional[str] = getattr(
+        trainer.state, "best_model_checkpoint", None
+    )
     (run_dir / "run_info.json").write_text(
         json.dumps(
             {
