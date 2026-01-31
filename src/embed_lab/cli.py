@@ -1,10 +1,18 @@
 import typer
 from pathlib import Path
 from typing import Annotated
+from importlib import resources
 
 from embed_lab import templates
 
 app = typer.Typer(name="emb", add_completion=True)
+
+
+def get_template(filename: str) -> str:
+    """Reads a template file from the package resources."""
+    return (
+        resources.files(templates) / filename
+    ).read_text(encoding="utf-8")
 
 
 @app.command()
@@ -95,3 +103,7 @@ def init(
         "\n✨ Done! Try:", fg=typer.colors.BLUE, bold=True
     )
     typer.echo("   python experiments/exp_01_baseline.py")
+
+
+if __name__ == "__main__":
+    print(get_template("templates.py"))
