@@ -9,9 +9,7 @@ import typer
 
 import template
 
-EXCLUDES: frozenset[str] = frozenset(
-    {"__pycache__", "__init__.py"}
-)
+EXCLUDES: frozenset[str] = frozenset({"__pycache__"})
 
 
 app = typer.Typer(

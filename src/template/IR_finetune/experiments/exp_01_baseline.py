@@ -2,8 +2,8 @@ from __future__ import annotations
 from pathlib import Path
 
 # Import the implementations
-from inventory.datasets import load_splits
-from inventory.preprocess import preprocess
+from inventory.datasets import load_splits  # type: ignore
+from inventory.preprocess import preprocess  # type: ignore
 from inventory.train import train
 from inventory.evaluate import evaluate_on_gold
 from inventory.plotting import (
