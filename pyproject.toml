@@ -1,5 +1,5 @@
 [project]
-name = "embed_lab"
+name = "vx"
 version = "0.4.0"
 description = "Add your description here"
 readme = "README.md"
@@ -19,4 +19,4 @@ build-backend = "uv_build"
 
 
 [project.scripts]
-emb = "embed_lab.cli:app"
+emb = "vx.cli:app"

@@ -7,7 +7,7 @@ from importlib.abc import Traversable
 
 import template
 
-app = typer.Typer(name="emb", add_completion=True)
+app = typer.Typer(name="vx", add_completion=True)
 
 
 def copy_recursive(
